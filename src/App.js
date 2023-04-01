@@ -1,11 +1,19 @@
 import "./App.css";
-import TourCard from "./components/TourCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Tour from "./pages/Tour";
+import SearchAppBar from "./components/Appbar";
+
 
 function App() {
 	return (
-		<div className="App">
-			<TourCard />
-		</div>
+		<BrowserRouter>
+			<SearchAppBar />
+			<Routes>
+				<Route path="/" element={<Home/>} />
+				<Route path="/:id" element={<Tour/>} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
